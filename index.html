@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelişim Raporu Oluşturucu</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .info-section { margin-top: 20px; }
+        .info-section p { margin-bottom: 10px; }
+        .form-container { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Gelişim Raporu Oluşturucu</h1>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="studentName">Çocuğun Adı:</label>
+            <input type="text" id="studentName" name="studentName">
+        </div>
+        <div class="form-group">
+            <label for="studentSurname">Çocuğun Soyadı:</label>
+            <input type="text" id="studentSurname" name="studentSurname">
+        </div>
+        <div class="form-group">
+            <label for="teacherName">Öğretmen:</label>
+            <input type="text" id="teacherName" name="teacherName">
+        </div>
+        <div class="form-group">
+            <label for="ageGroup">Yaş Grubu:</label>
+            <select id="ageGroup" name="ageGroup">
+                <option value="48-60 Ay">48-60 Ay</option>
+                <option value="60-72 Ay">60-72 Ay</option>
+            </select>
+        </div>
+        <h2>Aylık Gelişim Verileri</h2>
+        ${createMonthlyInputs('Eylül')}
+        ${createMonthlyInputs('Ekim')}
+        ${createMonthlyInputs('Kasım')}
+        ${createMonthlyInputs('Aralık')}
+        ${createMonthlyInputs('Ocak')}
+        ${createMonthlyInputs('Şubat')}
+        ${createMonthlyInputs('Mart')}
+        ${createMonthlyInputs('Nisan')}
+        ${createMonthlyInputs('Mayıs')}
+        ${createMonthlyInputs('Haziran')}
+        <h2>Dönem Sonu</h2>
+        ${createSemesterInputs('Dönem Sonu')}
+        <h2>Sene Sonu</h2>
+        ${createSemesterInputs('Sene Sonu')}
+        <button onclick="generateReport()">Rapor Oluştur</button>
+    </div>
+    <div id="report-container" style="display:none;">
+        <h2>Gelişim Raporu</h2>
+        <p id="reportContent"></p>
+    </div>
+    <div class="info-section">
+        <h2>Kullanım Talimatları</h2>
+        <p>Bu, "Gelişim ve İzleme Formu Oluşturma Robotu" programıdır.</p>
+        <p>Bu robot, telefona, tablete ve Apple cihazlara uyumlu şekilde çalışır.</p>
+        <p>Full versiyonu için gelişmeleri aşağıdaki linkten takip edebilirsiniz:</p>
+        <p>Plan ve Programlarımızı Görmek ve bize ulaşmak için: <a href="http://planim.com.tr" target="_blank">planim.com.tr</a></p>
+        <h3>NOTLAR</h3>
+        <p>Hem Gelişim İzleme Formları hem de Gelişim Raporları program üzerinden oluşturulabilir.</p>
+    </div>
+
+    <script>
+        function createMonthlyInputs(month) {
+            return `
+                <div class="form-group">
+                    <label for="cognitiveDevelopment${month}">Bilişsel Gelişim (${month}):</label>
+                    <textarea id="cognitiveDevelopment${month}" name="cognitiveDevelopment${month}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="languageDevelopment${month}">Dil Gelişimi (${month}):</label>
+                    <textarea id="languageDevelopment${month}" name="languageDevelopment${month}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="physicalDevelopment${month}">Fiziksel Gelişim (${month}):</label>
+                    <textarea id="physicalDevelopment${month}" name="physicalDevelopment${month}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="socialEmotionalDevelopment${month}">Sosyal-Duygusal Gelişim (${month}):</label>
+                    <textarea id="socialEmotionalDevelopment${month}" name="socialEmotionalDevelopment${month}"></textarea>
+                </div>`;
+        }
+
+        function createSemesterInputs(semester) {
+            return `
+                <div class="form-group">
+                    <label for="cognitiveDevelopment${semester}">Bilişsel Gelişim (${semester}):</label>
+                    <textarea id="cognitiveDevelopment${semester}" name="cognitiveDevelopment${semester}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="languageDevelopment${semester}">Dil Gelişimi (${semester}):</label>
+                    <textarea id="languageDevelopment${semester}" name="languageDevelopment${semester}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="physicalDevelopment${semester}">Fiziksel Gelişim (${semester}):</label>
+                    <textarea id="physicalDevelopment${semester}" name="physicalDevelopment${semester}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="socialEmotionalDevelopment${semester}">Sosyal-Duygusal Gelişim (${semester}):</label>
+                    <textarea id="socialEmotionalDevelopment${semester}" name="socialEmotionalDevelopment${semester}"></textarea>
+                </div>`;
+        }
+
+        function generateReport() {
+            var reportContent = "<strong>Çocuğun Adı:</strong> " + document.getElementById('studentName').value + " " +
+                                document.getElementById('studentSurname').value + "<br>" +
+                                "<strong>Öğretmen:</strong> " + document.getElementById('teacherName').value + "<br>" +
+                                "<strong>Yaş Grubu:</strong> " + document.getElementById('ageGroup').value + "<br><br>";
+
+            var months = ['Eylül', 'Ekim', 'Kasım', 'Aralık', 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'];
+            months.forEach(function(month) {
+                reportContent += `<h3>${month} Ayı</h3>` +
+                    "<strong>Bilişsel Gelişim:</strong><br>" + document.getElementById('cognitiveDevelopment' + month).value + "<br><br>" +
+                    "<strong>Dil Gelişimi:</strong><br>" + document.getElementById('languageDevelopment' + month).value + "<br><br>" +
+                    "<strong>Fiziksel Gelişim:</strong><br>" + document.getElementById('physicalDevelopment' + month).value + "<br><br>" +
+                    "<strong>Sosyal-Duygusal Gelişim:</strong><br>" + document.getElementById('socialEmotionalDevelopment' + month).value + "<br><br>";
+            });
+
+            var semesters = ['Dönem Sonu', 'Sene Sonu'];
+            semesters.forEach(function(semester) {
+                reportContent += `<h3>${semester}</h3>` +
+                    "<strong>Bilişsel Gelişim:</strong><br>" + document.getElementById('cognitiveDevelopment' + semester).value + "<br><br>" +
+                    "<strong>Dil Gelişimi:</strong><br>" + document.getElementById('languageDevelopment' + semester).value + "<br><br>" +
+                    "<strong>Fiziksel Gelişim:</strong><br>" + document.getElementById('physicalDevelopment' + semester).value + "<br><br>" +
+                    "<strong>Sosyal-Duygusal Gelişim:</strong><br>" + document.getElementById('socialEmotionalDevelopment' + semester).value + "<br><br>";
+            });
+
+            document.getElementById('reportContent').innerHTML = reportContent;
+            document.getElementById('report-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
