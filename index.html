@@ -1,8 +1,4 @@
-# Proje klasörüne gidin (yeni oluşturduysanız zaten orada olacaksınız)
-cd Gelisim-Raporu-Olusturucu
-
-# HTML dosyasını oluşturun
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -33,20 +29,72 @@ echo '<!DOCTYPE html>
             </select>
         </div>
         <h2>Aylık Gelişim Verileri</h2>
-        ${createMonthlyInputs('Eylül')}
-        ${createMonthlyInputs('Ekim')}
-        ${createMonthlyInputs('Kasım')}
-        ${createMonthlyInputs('Aralık')}
-        ${createMonthlyInputs('Ocak')}
-        ${createMonthlyInputs('Şubat')}
-        ${createMonthlyInputs('Mart')}
-        ${createMonthlyInputs('Nisan')}
-        ${createMonthlyInputs('Mayıs')}
-        ${createMonthlyInputs('Haziran')}
-        <h2>Dönem Sonu</h2>
-        ${createSemesterInputs('Dönem Sonu')}
-        <h2>Sene Sonu</h2>
-        ${createSemesterInputs('Sene Sonu')}
+        <div class="form-group">
+            <label for="cognitiveDevelopmentEylül">Bilişsel Gelişim (Eylül):</label>
+            <textarea id="cognitiveDevelopmentEylül" name="cognitiveDevelopmentEylül"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="languageDevelopmentEylül">Dil Gelişimi (Eylül):</label>
+            <textarea id="languageDevelopmentEylül" name="languageDevelopmentEylül"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="physicalDevelopmentEylül">Fiziksel Gelişim (Eylül):</label>
+            <textarea id="physicalDevelopmentEylül" name="physicalDevelopmentEylül"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="socialEmotionalDevelopmentEylül">Sosyal-Duygusal Gelişim (Eylül):</label>
+            <textarea id="socialEmotionalDevelopmentEylül" name="socialEmotionalDevelopmentEylül"></textarea>
+        </div>
+        <!-- Diğer aylar için benzer alanlar eklenir -->
+        <div class="form-group">
+            <label for="cognitiveDevelopmentEkim">Bilişsel Gelişim (Ekim):</label>
+            <textarea id="cognitiveDevelopmentEkim" name="cognitiveDevelopmentEkim"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="languageDevelopmentEkim">Dil Gelişimi (Ekim):</label>
+            <textarea id="languageDevelopmentEkim" name="languageDevelopmentEkim"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="physicalDevelopmentEkim">Fiziksel Gelişim (Ekim):</label>
+            <textarea id="physicalDevelopmentEkim" name="physicalDevelopmentEkim"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="socialEmotionalDevelopmentEkim">Sosyal-Duygusal Gelişim (Ekim):</label>
+            <textarea id="socialEmotionalDevelopmentEkim" name="socialEmotionalDevelopmentEkim"></textarea>
+        </div>
+        <!-- Diğer aylar ve dönem sonu, sene sonu için benzer alanlar eklenir -->
+        <div class="form-group">
+            <label for="cognitiveDevelopmentDönemSonu">Bilişsel Gelişim (Dönem Sonu):</label>
+            <textarea id="cognitiveDevelopmentDönemSonu" name="cognitiveDevelopmentDönemSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="languageDevelopmentDönemSonu">Dil Gelişimi (Dönem Sonu):</label>
+            <textarea id="languageDevelopmentDönemSonu" name="languageDevelopmentDönemSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="physicalDevelopmentDönemSonu">Fiziksel Gelişim (Dönem Sonu):</label>
+            <textarea id="physicalDevelopmentDönemSonu" name="physicalDevelopmentDönemSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="socialEmotionalDevelopmentDönemSonu">Sosyal-Duygusal Gelişim (Dönem Sonu):</label>
+            <textarea id="socialEmotionalDevelopmentDönemSonu" name="socialEmotionalDevelopmentDönemSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="cognitiveDevelopmentSeneSonu">Bilişsel Gelişim (Sene Sonu):</label>
+            <textarea id="cognitiveDevelopmentSeneSonu" name="cognitiveDevelopmentSeneSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="languageDevelopmentSeneSonu">Dil Gelişimi (Sene Sonu):</label>
+            <textarea id="languageDevelopmentSeneSonu" name="languageDevelopmentSeneSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="physicalDevelopmentSeneSonu">Fiziksel Gelişim (Sene Sonu):</label>
+            <textarea id="physicalDevelopmentSeneSonu" name="physicalDevelopmentSeneSonu"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="socialEmotionalDevelopmentSeneSonu">Sosyal-Duygusal Gelişim (Sene Sonu):</label>
+            <textarea id="socialEmotionalDevelopmentSeneSonu" name="socialEmotionalDevelopmentSeneSonu"></textarea>
+        </div>
         <button onclick="generateReport()">Rapor Oluştur</button>
     </div>
     <div id="report-container" style="display:none;">
@@ -64,84 +112,4 @@ echo '<!DOCTYPE html>
     </div>
     <script src="script.js"></script>
 </body>
-</html>' > index.html
-
-# CSS dosyasını oluşturun
-echo 'body { font-family: Arial, sans-serif; margin: 20px; }
-.form-group { margin-bottom: 15px; }
-label { display: block; margin-bottom: 5px; }
-input, select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
-button { padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; cursor: pointer; }
-button:hover { background-color: #0056b3; }
-.info-section { margin-top: 20px; }
-.info-section p { margin-bottom: 10px; }
-.form-container { margin-bottom: 20px; }' > style.css
-
-# JavaScript dosyasını oluşturun
-echo 'function createMonthlyInputs(month) {
-    return `
-        <div class="form-group">
-            <label for="cognitiveDevelopment${month}">Bilişsel Gelişim (${month}):</label>
-            <textarea id="cognitiveDevelopment${month}" name="cognitiveDevelopment${month}"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="languageDevelopment${month}">Dil Gelişimi (${month}):</label>
-            <textarea id="languageDevelopment${month}" name="languageDevelopment${month}"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="physicalDevelopment${month}">Fiziksel Gelişim (${month}):</label>
-            <textarea id="physicalDevelopment${month}" name="physicalDevelopment${month}"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="socialEmotionalDevelopment${month}">Sosyal-Duygusal Gelişim (${month}):</label>
-            <textarea id="socialEmotionalDevelopment${month}" name="socialEmotionalDevelopment${month}"></textarea>
-        </div>`;
-}
-
-function createSemesterInputs(semester) {
-    return `
-        <div class="form-group">
-            <label for="cognitiveDevelopment${semester}">Bilişsel Gelişim (${semester}):</label>
-            <textarea id="cognitiveDevelopment${semester}" name="cognitiveDevelopment${semester}"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="languageDevelopment${semester}">Dil Gelişimi (${semester}):</label>
-            <textarea id="languageDevelopment${semester}" name="languageDevelopment${semester}"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="physicalDevelopment${semester}">Fiziksel Gelişim (${semester}):</label>
-            <textarea id="physicalDevelopment${semester}" name="physicalDevelopment${semester}"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="socialEmotionalDevelopment${semester}">Sosyal-Duygusal Gelişim (${semester}):</label>
-            <textarea id="socialEmotionalDevelopment${semester}" name="socialEmotionalDevelopment${semester}"></textarea>
-        </div>`;
-}
-
-function generateReport() {
-    var reportContent = "<strong>Çocuğun Adı:</strong> " + document.getElementById('studentName').value + " " +
-                        document.getElementById('studentSurname').value + "<br>" +
-                        "<strong>Öğretmen:</strong> " + document.getElementById('teacherName').value + "<br>" +
-                        "<strong>Yaş Grubu:</strong> " + document.getElementById('ageGroup').value + "<br><br>";
-
-    var months = ['Eylül', 'Ekim', 'Kasım', 'Aralık', 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'];
-    months.forEach(function(month) {
-        reportContent += `<h3>${month} Ayı</h3>` +
-            "<strong>Bilişsel Gelişim:</strong><br>" + document.getElementById('cognitiveDevelopment' + month).value + "<br><br>" +
-            "<strong>Dil Gelişimi:</strong><br>" + document.getElementById('languageDevelopment' + month).value + "<br><br>" +
-            "<strong>Fiziksel Gelişim:</strong><br>" + document.getElementById('physicalDevelopment' + month).value + "<br><br>" +
-            "<strong>Sosyal-Duygusal Gelişim:</strong><br>" + document.getElementById('socialEmotionalDevelopment' + month).value + "<br><br>";
-    });
-
-    var semesters = ['Dönem Sonu', 'Sene Sonu'];
-    semesters.forEach(function(semester) {
-        reportContent += `<h3>${semester}</h3>` +
-            "<strong>Bilişsel Gelişim:</strong><br>" + document.getElementById('cognitiveDevelopment' + semester).value + "<br><br>" +
-            "<strong>Dil Gelişimi:</strong><br>" + document.getElementById('languageDevelopment' + semester).value + "<br><br>" +
-            "<strong>Fiziksel Gelişim:</strong><br>" + document.getElementById('physicalDevelopment' + semester).value + "<br><br>" +
-            "<strong>Sosyal-Duygusal Gelişim:</strong><br>" + document.getElementById('socialEmotionalDevelopment' + semester).value + "<br><br>";
-    });
-
-    document.getElementById('reportContent').innerHTML = reportContent;
-    document.getElementById('report-container').style.display = 'block';
-}' > script.js
+</html>
