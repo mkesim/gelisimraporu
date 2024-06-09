@@ -8,108 +8,121 @@
 </head>
 <body>
     <h1>Gelişim Raporu Oluşturucu</h1>
-    <div class="form-container">
+    <form id="reportForm">
         <div class="form-group">
             <label for="studentName">Çocuğun Adı:</label>
-            <input type="text" id="studentName" name="studentName">
+            <input type="text" id="studentName" name="studentName" required>
         </div>
         <div class="form-group">
             <label for="studentSurname">Çocuğun Soyadı:</label>
-            <input type="text" id="studentSurname" name="studentSurname">
+            <input type="text" id="studentSurname" name="studentSurname" required>
         </div>
         <div class="form-group">
             <label for="teacherName">Öğretmen:</label>
-            <input type="text" id="teacherName" name="teacherName">
+            <input type="text" id="teacherName" name="teacherName" required>
         </div>
         <div class="form-group">
             <label for="ageGroup">Yaş Grubu:</label>
-            <select id="ageGroup" name="ageGroup">
+            <select id="ageGroup" name="ageGroup" required>
                 <option value="48-60 Ay">48-60 Ay</option>
                 <option value="60-72 Ay">60-72 Ay</option>
             </select>
         </div>
         <h2>Aylık Gelişim Verileri</h2>
-        <div class="form-group">
-            <label for="cognitiveDevelopmentEylül">Bilişsel Gelişim (Eylül):</label>
-            <textarea id="cognitiveDevelopmentEylül" name="cognitiveDevelopmentEylül"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="languageDevelopmentEylül">Dil Gelişimi (Eylül):</label>
-            <textarea id="languageDevelopmentEylül" name="languageDevelopmentEylül"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="physicalDevelopmentEylül">Fiziksel Gelişim (Eylül):</label>
-            <textarea id="physicalDevelopmentEylül" name="physicalDevelopmentEylül"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="socialEmotionalDevelopmentEylül">Sosyal-Duygusal Gelişim (Eylül):</label>
-            <textarea id="socialEmotionalDevelopmentEylül" name="socialEmotionalDevelopmentEylül"></textarea>
-        </div>
-        <!-- Diğer aylar için benzer alanlar eklenir -->
-        <div class="form-group">
-            <label for="cognitiveDevelopmentEkim">Bilişsel Gelişim (Ekim):</label>
-            <textarea id="cognitiveDevelopmentEkim" name="cognitiveDevelopmentEkim"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="languageDevelopmentEkim">Dil Gelişimi (Ekim):</label>
-            <textarea id="languageDevelopmentEkim" name="languageDevelopmentEkim"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="physicalDevelopmentEkim">Fiziksel Gelişim (Ekim):</label>
-            <textarea id="physicalDevelopmentEkim" name="physicalDevelopmentEkim"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="socialEmotionalDevelopmentEkim">Sosyal-Duygusal Gelişim (Ekim):</label>
-            <textarea id="socialEmotionalDevelopmentEkim" name="socialEmotionalDevelopmentEkim"></textarea>
-        </div>
-        <!-- Diğer aylar ve dönem sonu, sene sonu için benzer alanlar eklenir -->
-        <div class="form-group">
-            <label for="cognitiveDevelopmentDönemSonu">Bilişsel Gelişim (Dönem Sonu):</label>
-            <textarea id="cognitiveDevelopmentDönemSonu" name="cognitiveDevelopmentDönemSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="languageDevelopmentDönemSonu">Dil Gelişimi (Dönem Sonu):</label>
-            <textarea id="languageDevelopmentDönemSonu" name="languageDevelopmentDönemSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="physicalDevelopmentDönemSonu">Fiziksel Gelişim (Dönem Sonu):</label>
-            <textarea id="physicalDevelopmentDönemSonu" name="physicalDevelopmentDönemSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="socialEmotionalDevelopmentDönemSonu">Sosyal-Duygusal Gelişim (Dönem Sonu):</label>
-            <textarea id="socialEmotionalDevelopmentDönemSonu" name="socialEmotionalDevelopmentDönemSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="cognitiveDevelopmentSeneSonu">Bilişsel Gelişim (Sene Sonu):</label>
-            <textarea id="cognitiveDevelopmentSeneSonu" name="cognitiveDevelopmentSeneSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="languageDevelopmentSeneSonu">Dil Gelişimi (Sene Sonu):</label>
-            <textarea id="languageDevelopmentSeneSonu" name="languageDevelopmentSeneSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="physicalDevelopmentSeneSonu">Fiziksel Gelişim (Sene Sonu):</label>
-            <textarea id="physicalDevelopmentSeneSonu" name="physicalDevelopmentSeneSonu"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="socialEmotionalDevelopmentSeneSonu">Sosyal-Duygusal Gelişim (Sene Sonu):</label>
-            <textarea id="socialEmotionalDevelopmentSeneSonu" name="socialEmotionalDevelopmentSeneSonu"></textarea>
-        </div>
-        <button onclick="generateReport()">Rapor Oluştur</button>
-    </div>
-    <div id="report-container" style="display:none;">
-        <h2>Gelişim Raporu</h2>
-        <p id="reportContent"></p>
-    </div>
-    <div class="info-section">
-        <h2>Kullanım Talimatları</h2>
-        <p>Bu, "Gelişim ve İzleme Formu Oluşturma Robotu" programıdır.</p>
-        <p>Bu robot, telefona, tablete ve Apple cihazlara uyumlu şekilde çalışır.</p>
-        <p>Full versiyonu için gelişmeleri aşağıdaki linkten takip edebilirsiniz:</p>
-        <p>Plan ve Programlarımızı Görmek ve bize ulaşmak için: <a href="http://planim.com.tr" target="_blank">planim.com.tr</a></p>
-        <h3>NOTLAR</h3>
-        <p>Hem Gelişim İzleme Formları hem de Gelişim Raporları program üzerinden oluşturulabilir.</p>
-    </div>
-    <script src="script.js"></script>
+        <div id="monthlySections"></div>
+        <h2>Dönem Sonu ve Sene Sonu</h2>
+        ${createSemesterInputs('Dönem Sonu')}
+        ${createSemesterInputs('Sene Sonu')}
+        <button type="button" onclick="generateReport()">Rapor Oluştur</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.21.0/docxtemplater.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const months = ['Eylül', 'Ekim', 'Kasım', 'Aralık', 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'];
+            const monthlySections = document.getElementById('monthlySections');
+            months.forEach(month => {
+                monthlySections.innerHTML += createMonthlyInputs(month);
+            });
+        });
+
+        function createMonthlyInputs(month) {
+            return `
+                <h3>${month}</h3>
+                <div class="form-group">
+                    <label for="cognitiveDevelopment${month}">Bilişsel Gelişim (${month}):</label>
+                    <textarea id="cognitiveDevelopment${month}" name="cognitiveDevelopment${month}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="languageDevelopment${month}">Dil Gelişimi (${month}):</label>
+                    <textarea id="languageDevelopment${month}" name="languageDevelopment${month}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="physicalDevelopment${month}">Fiziksel Gelişim (${month}):</label>
+                    <textarea id="physicalDevelopment${month}" name="physicalDevelopment${month}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="socialEmotionalDevelopment${month}">Sosyal-Duygusal Gelişim (${month}):</label>
+                    <textarea id="socialEmotionalDevelopment${month}" name="socialEmotionalDevelopment${month}" required></textarea>
+                </div>`;
+        }
+
+        function createSemesterInputs(semester) {
+            return `
+                <div class="form-group">
+                    <label for="cognitiveDevelopment${semester}">Bilişsel Gelişim (${semester}):</label>
+                    <textarea id="cognitiveDevelopment${semester}" name="cognitiveDevelopment${semester}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="languageDevelopment${semester}">Dil Gelişimi (${semester}):</label>
+                    <textarea id="languageDevelopment${semester}" name="languageDevelopment${semester}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="physicalDevelopment${semester}">Fiziksel Gelişim (${semester}):</label>
+                    <textarea id="physicalDevelopment${semester}" name="physicalDevelopment${semester}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="socialEmotionalDevelopment${semester}">Sosyal-Duygusal Gelişim (${semester}):</label>
+                    <textarea id="socialEmotionalDevelopment${semester}" name="socialEmotionalDevelopment${semester}" required></textarea>
+                </div>`;
+        }
+
+        function generateReport() {
+            const form = document.getElementById('reportForm');
+            const data = new FormData(form);
+            const reportData = {};
+            data.forEach((value, key) => {
+                reportData[key] = value;
+            });
+            createWordDocument(reportData);
+        }
+
+        function createWordDocument(data) {
+            const doc = new Docxtemplater();
+            const zip = new JSZip();
+            const templatePath = 'docx/template.docx';
+            fetch(templatePath)
+                .then(response => response.arrayBuffer())
+                .then(content => {
+                    zip.loadAsync(content)
+                        .then(() => {
+                            doc.loadZip(zip);
+                            doc.setData(data);
+                            try {
+                                doc.render();
+                            } catch (error) {
+                                console.error(error);
+                                throw error;
+                            }
+                            const out = doc.getZip().generate({
+                                type: "blob",
+                                mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            });
+                            saveAs(out, "Gelişim_Raporu.docx");
+                        });
+                });
+        }
+    </script>
 </body>
 </html>
